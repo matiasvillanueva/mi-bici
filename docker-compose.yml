@@ -8,4 +8,4 @@ services:
       - .:/workspace
     ports:
       - "8888:8888"
-    command: ["bash", "/workspace/scripts/start_collab.sh", "/workspace"]
+    command: ["python3", "/workspace/scripts/start_collab.py", "/workspace"]

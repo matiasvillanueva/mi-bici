@@ -44,7 +44,7 @@ collab: puntos
 		done \
 	) &
 	@if [ -f /.dockerenv ]; then \
-		PORT=$(PORT) bash /workspace/scripts/start_collab.sh /workspace; \
+		PORT=$(PORT) python3 /workspace/scripts/start_collab.py /workspace; \
 	else \
 		docker compose up --build; \
 	fi
