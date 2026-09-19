@@ -1,0 +1,42 @@
+{
+  "name": "Series de Tiempo",
+  "build": {
+    "context": "..",
+    "dockerfile": "Dockerfile"
+  },
+  "workspaceFolder": "/workspace",
+  "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind",
+  "forwardPorts": [8888],
+  "portsAttributes": {
+    "8888": {
+      "label": "Jupyter Lab",
+      "onAutoForward": "silent",
+      "protocol": "http",
+      "requireLocalPort": true
+    }
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-python.python",
+        "ms-toolsai.jupyter",
+        "ms-toolsai.jupyter-keymap",
+        "ms-toolsai.jupyter-renderers"
+      ],
+      "settings": {
+        "python.defaultInterpreterPath": "/usr/local/bin/python",
+        "workbench.browser.openLocalhostLinks": false,
+        "simpleBrowser.useIntegratedBrowser": false,
+        "remote.portsAttributes": {
+          "8888": {
+            "label": "Jupyter Lab",
+            "onAutoForward": "silent",
+            "protocol": "http",
+            "requireLocalPort": true
+          }
+        }
+      }
+    }
+  },
+  "remoteUser": "root"
+}
