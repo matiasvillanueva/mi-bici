@@ -68,8 +68,8 @@ Series diarias de Rosario (2023–2025): viajes MBTB, temperatura, humedad y pre
 |---|---|---|
 | 1 | Exposición del problema | [punto1/exposicion del problema.txt](punto1/exposicion%20del%20problema.txt) |
 | 2 | Gráficos de las series originales y estacionariedad | [punto2/punto2.ipynb](punto2/punto2.ipynb) |
-| 3 | FAS, FAC y FACP | `punto3/` |
-| 4 | Pruebas de raíces unitarias | `punto4/` |
+| 3 | FAS, FAC y FACP | [punto3/punto3.ipynb](punto3/punto3.ipynb) |
+| 4 | Pruebas de raíces unitarias | [punto4/punto4.ipynb](punto4/punto4.ipynb) |
 | 5 | Estimación SARIMA | `punto5/` |
 | 6 | Métricas Training / Testing | `punto6/` |
 | 7 | Comparación con otros modelos | `punto7/` |
@@ -336,6 +336,8 @@ La inspección gráfica alcanza para decidir que **viajes, temperatura y humedad
 
 
 def main() -> None:
+    from build_puntos34 import main as build_puntos34
+    build_puntos34()
     write_nb(ROOT / "puntos" / "00_indice.ipynb", INDICE)
     write_nb(ROOT / "puntos" / "punto2" / "punto2.ipynb", PUNTO2)
 
