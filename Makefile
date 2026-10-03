@@ -24,6 +24,8 @@ puntos:
 	@echo "  10. Modelo VAR"
 	@echo "  11. Impulso-respuesta y causalidad"
 	@echo "  12. Estacionalidad y SARIMA"
+	@echo "  13. Informe final (entrega/TP1_informe.pdf)"
+	@echo "  14. Estructura del informe"
 	@echo ""
 	@echo "Carpeta de trabajo: puntos/"
 	@ls -1 puntos

@@ -1,0 +1,6 @@
+{
+  "Viajes MBTB": "SARIMA punto 5",
+  "Temperatura": "Ciclo anual + AR(1)",
+  "Humedad": "Ciclo anual + AR(1)",
+  "Precipitación": "SARIMA punto 5"
+}

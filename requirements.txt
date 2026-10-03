@@ -11,3 +11,8 @@ ipykernel>=6.29.0
 ipywidgets>=8.1.0
 openpyxl>=3.1.0
 arch>=7.0.0
+
+# Ejecución reproducible de notebooks y generación del informe
+nbformat>=5.10.0
+nbclient>=0.10.0
+reportlab>=4.0.0
