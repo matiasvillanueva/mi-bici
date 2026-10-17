@@ -1,0 +1,58 @@
+{
+  "Viajes MBTB": {
+    "order": [
+      0,
+      1,
+      1
+    ],
+    "seasonal_order": [
+      0,
+      1,
+      1,
+      7
+    ],
+    "anual": false
+  },
+  "Temperatura": {
+    "order": [
+      1,
+      0,
+      0
+    ],
+    "seasonal_order": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anual": true
+  },
+  "Humedad": {
+    "order": [
+      1,
+      0,
+      0
+    ],
+    "seasonal_order": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anual": false
+  },
+  "Precipitación": {
+    "order": [
+      1,
+      0,
+      1
+    ],
+    "seasonal_order": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "anual": false
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "workbench.browser.openLocalhostLinks": false,
+  "simpleBrowser.useIntegratedBrowser": false,
+  "remote.portsAttributes": {
+    "8888": {
+      "label": "Jupyter Lab",
+      "onAutoForward": "silent",
+      "protocol": "http",
+      "requireLocalPort": true
+    }
+  }
+}

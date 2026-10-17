@@ -1,0 +1,37 @@
+Gráficos de las series originales y estacionariedad
+
+La consigna pide graficar las series originales, analizar si es necesario diferenciarlas para convertirlas en estacionarias y exponer los conceptos de estacionariedad. En esta etapa el juicio es gráfico: no se aplican pruebas de raíces unitarias (punto 4). Las cuatro series son diarias, están alineadas entre el 1 de enero de 2023 y el 31 de diciembre de 2025 (1.096 observaciones, incluido el año bisiesto 2024) y no tienen valores faltantes.
+
+Conceptos de estacionariedad
+
+Una serie {y_t} es débilmente estacionaria (estacionaria de segundo orden) cuando su media es constante, su varianza es finita y constante, y la autocovarianza depende solo del rezago k y no del momento calendario. Si falla alguna de esas propiedades, la serie es no estacionaria. En la práctica aparecen tres fuentes habituales. La tendencia determinística desplaza la media con el tiempo (lineal, cuadrática o estacional fija). La tendencia estocástica —una raíz unitaria— hace que los shocks sean permanentes; el recurso clásico es la diferencia regular Δy_t = y_t − y_{t−1}. La estacionalidad de período s se ataca con la diferencia estacional Δ_s y_t = y_t − y_{t−s} (s = 7 en un ciclo laboral semanal; s = 365 en el ciclo climático anual). Una serie puede requerir ambas operaciones (ΔΔ_s). Diferenciar de más —sobrediferenciación— introduce un MA no invertible y suele verse como una serie centrada en cero pero con más ruido de alta frecuencia.
+
+Lectura de las series originales
+
+Viajes MBTB. Es la serie de interés. El promedio diario es 2.567 viajes (desvío 721), con un mínimo de 298 el 19 de agosto de 2025 y un máximo de 4.569 el 13 de junio de 2023. La trayectoria no oscila alrededor de un único nivel. Hay tres rasgos que rompen la estacionariedad en niveles.
+
+Primero, un ciclo semanal nítido: la media de los días hábiles es 2.737 viajes y la del fin de semana, 2.141 (un 22 % menos). El jueves es el día más alto (2.840) y el domingo el más bajo (2.111). Segundo, un ciclo anual alineado con el clima pampeano: enero promedia 2.853 viajes y julio, 2.090. Tercero, un cambio de nivel entre años que no se reduce a la estacionalidad. En 2023 la media fue 2.934; en 2024 cayó a 2.202 (−25 %); en 2025 se recuperó parcialmente a 2.566. La media móvil de 30 días se desplaza en un rango amplio, entre 1.518 (septiembre de 2024) y 3.585 (marzo de 2023). Esos movimientos de baja frecuencia impiden tratar la serie original como estacionaria.
+
+Temperatura media a 2 m. El promedio del período es 18,8 °C (desvío 6,9), con un piso de 1,8 °C y un techo de 35,5 °C. El rasgo dominante es el ciclo anual, no un paseo aleatorio: enero promedia 27,7 °C y julio 10,5 °C (amplitud de 17,2 °C). La media anual apenas cambia (19,5 °C en 2023; 18,6 °C en 2024; 18,5 °C en 2025). La serie no es estacionaria en el sentido estricto porque la media condicional al mes no es constante; sí es compatible con un proceso de media estacional determinística más un residual de corto plazo.
+
+Humedad relativa a 2 m. El promedio es 67,7 % (desvío 14,1), entre 25,9 % y 95,9 %. También exhibe estacionalidad anual, de signo opuesto al de la temperatura: la humedad es más alta en los meses fríos (79,8 % en junio) y más baja en pleno verano (49,7 % en enero). El diagnóstico es análogo: no estacionaria en niveles por el ciclo de 365 días.
+
+Precipitación diaria. El promedio es 3,0 mm, pero la distribución es asimétrica y con exceso de ceros: la mediana es 0 mm, el 52 % de los días no registra lluvia y el 24 % acumula 1 mm o más. El máximo es 80,2 mm el 19 de agosto de 2025, el mismo día del mínimo de viajes. Los episodios de lluvia no desplazan el nivel de forma permanente: después de un pico la serie vuelve a cero. Eso es compatible con un proceso de media baja, no con una serie integrada. El coeficiente de variación (3,08) es un orden de magnitud mayor que el de las otras tres series y refleja heteroscedasticidad por ceros y picos, no una tendencia.
+
+La comparación conjunta refuerza la lectura climática de la demanda. En niveles, los viajes correlacionan positivamente con la temperatura (0,33) y negativamente con la humedad (−0,39) y con la precipitación (−0,31). En días secos la media de viajes es 2.697; con 1 mm o más cae a 2.252; con 10 mm o más, a 1.852.
+
+¿Es necesario diferenciar?
+
+Viajes. Conviene una diferencia regular para anular el nivel y, sobre todo, una diferencia estacional semanal (s = 7) para el ciclo laboral. Tras Δ, la media pasa de 2.566,8 a 0,24 y el desvío baja de 720,6 a 652,5: la serie queda centrada en cero. La diferencia semanal Δ_7 también centra la media (−6,0) pero apenas reduce el desvío (709,7). La operación combinada ΔΔ_7 deja media −1,02 y eleva el desvío a 824,4. Ese aumento de volatilidad es la huella clásica de una posible sobrediferenciación. En esta etapa se adopta Δ y Δ_7 como candidatas y se reserva ΔΔ_7 para evaluarla con más cuidado en la identificación SARIMA (punto 5), sin aplicarla de oficio.
+
+Temperatura. Una diferencia regular aplana los tramos cortos (media 0,01 °C; desvío 2,53 °C) pero no elimina el ciclo de 365 días, que sigue visible en la serie original. La diferencia anual Δ_365 reduce el desvío de 6,94 a 5,07 y es la candidata natural si se busca estacionariedad por diferenciación. Una alternativa —a discutir más adelante— es modelar el ciclo con dummies estacionales o un término de Fourier y no diferenciar.
+
+Humedad relativa. El diagnóstico replica el de la temperatura: la diferencia regular centra la serie (media −0,01; desvío 8,35) y la diferencia anual es la que ataca el ciclo. Se sugiere Δ_365.
+
+Precipitación. Diferenciarla produce una serie centrada en cero, con picos positivos y negativos casi simétricos (desvío 11,51 frente a 9,13 en niveles). Ese patrón no mejora la interpretación y es el síntoma habitual de sobrediferenciar un proceso que ya es media-revertido. En esta etapa se la deja en niveles.
+
+Conclusión
+
+La inspección gráfica alcanza para decidir que viajes, temperatura y humedad no pueden tratarse como estacionarias en niveles. Los viajes combinan ciclo semanal, ciclo anual y un cambio de nivel entre 2023 y 2025; el clima aporta una media que depende del mes. La precipitación, en cambio, es compatible con un proceso de media baja y no se diferencia, para no sobrediferenciar. La diferenciación sugerida —sin test— es Δ y Δ_7 en viajes, Δ_365 en temperatura y en humedad, y ninguna en precipitación. La confirmación formal queda para las pruebas de raíces unitarias del punto 4 y para la especificación SARIMA del punto 5.
+
+Los gráficos de las series originales, de la estacionalidad de calendario y de las series diferenciadas están en la notebook puntos/punto2/punto2.ipynb.

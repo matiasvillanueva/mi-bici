@@ -1,0 +1,14 @@
+Exposición del problema
+
+Rosario cuenta con un sistema de micromovilidad compartida cuya demanda diaria no es estable: responde al calendario laboral y educativo, a la estacionalidad climática de la región pampeana y a episodios puntuales de calor, frío o lluvia. Esa variabilidad tiene consecuencias operativas. La planificación de flota, la redistribución de unidades entre estaciones y el mantenimiento de la red requieren anticipar picos y caídas de uso. El clima constituye un candidato natural como factor concomitante: la temperatura condiciona la comodidad del viaje, la humedad relativa modifica la sensación térmica y la precipitación suele desalentar el uso de la bicicleta.
+
+Por ese motivo se eligieron cuatro series diarias, alineadas en el mismo intervalo y para las mismas coordenadas de Rosario (−60,65; −32,95), entre el 1 de enero de 2023 y el 31 de diciembre de 2025:
+
+1. Viajes diarios del sistema MBTB. Es la serie de interés: resume la demanda observada del servicio. La fuente es el portal Datos Abiertos Rosario, de la Municipalidad de Rosario (https://datos.rosario.gob.ar/).
+2. Temperatura media del aire a 2 metros (°C). Captura el régimen térmico y su ciclo estacional.
+3. Humedad relativa del aire a 2 metros (%). Incorpora la sensación térmica y los días bochornosos, que no se reducen a la temperatura ni a la lluvia.
+4. Precipitación diaria acumulada (mm). Incorpora los shocks meteorológicos de corto plazo asociados a días de lluvia.
+
+La elección se justifica por tres razones. En primer lugar, las series son comparables en frecuencia y horizonte, lo cual habilita el análisis univariado (estacionariedad, SARIMA, pronóstico) y el análisis conjunto (VAR, impulso-respuesta y causalidad). En segundo lugar, el problema es relevante para la gestión urbana: un modelo que relacione demanda y clima permite estimar el uso esperado ante distintos escenarios meteorológicos. En tercer lugar, la literatura de movilidad activa documenta de manera reiterada la sensibilidad del ciclismo urbano a la temperatura, a la humedad y a la lluvia; el caso de Rosario permite contrastar esa regularidad en un sistema latinoamericano de bicicletas públicas, con tres años completos de observación diaria.
+
+El objetivo analítico consiste, entonces, en caracterizar la dinámica temporal de los viajes, evaluar si las series son estacionarias, identificar un modelo que ajuste y pronostique la demanda y, posteriormente, examinar la interdependencia entre el uso de bicicletas y el clima.
